@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="public\includes\scripts\webapp-films.js">
+		<error line="31" column="59" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="41" column="32" severity="error" message="Expected '!==' and instead saw '!='." source="jshint.W116" />
+		<error line="43" column="25" severity="error" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="46" column="46" severity="error" message="Expected '!==' and instead saw '!='." source="jshint.W116" />
+		<error line="50" column="194" severity="error" message="Line is too long." source="jshint.W101" />
+		<error line="136" column="37" severity="error" message="Expected '!==' and instead saw '!='." source="jshint.W116" />
+	</file>
+	<file name="public\includes\scripts\webapp-login.js">
+		<error line="2" column="41" severity="error" message="Expected '!==' and instead saw '!='." source="jshint.W116" />
+	</file>
+	<file name="public\includes\scripts\webapp-users.js">
+		<error line="7" column="16" severity="error" message="Expected '!==' and instead saw '!='." source="jshint.W116" />
+	</file>
+</checkstyle>

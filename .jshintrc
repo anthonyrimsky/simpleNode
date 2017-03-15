@@ -1,0 +1,6 @@
+{
+	// JSHint Configuration File
+	"maxerr"        : 500,      // {int} Maximum error before stopping
+	"maxlen"        : 175,    	// {int} Max number of characters per line
+	"eqeqeq"        : true		// true: Require triple equals (===) for comparison
+}

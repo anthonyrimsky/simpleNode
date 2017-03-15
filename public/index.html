@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>NotFlix</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="includes/libraries/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="includes/styles/custom.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-logo"><img src="includes/images/logo.png" id="logo" alt="logo"></a>
+            <a href="/" class="navbar-brand">NotFlix</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="users.html">Toon gebruikers</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" id="navbar-login" class="hidden" data-toggle="modal" data-target="#login">Login</a></li>
+                <li><a href="#" id="navbar-register" class="hidden" data-toggle="modal" data-target="#register">Registreren</a>
+                </li>
+                <li><a href="#" id="navbar-user" class="hidden" data-toggle="modal" data-target="#user-info"></a></li>
+                <li><a href="#" id="navbar-logout" class="hidden">Uitloggen</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row" id="films-list">
+    </div>
+</div>
+
+<!-- Modal Login -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Inloggen</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger hidden" id="wrong-pass-warning">
+                    <strong>Onbekende gebruikersnaam of wachtwoord!</strong><br> Controleer je inloggegevens en probeer
+                    opnieuw
+                </div>
+                    <div class="form-group">
+                        <label for="username-login">Gebruikersnaam</label>
+                        <input type="email" class="form-control" id="username-login">
+                        <span class="help-block hidden" id="username-login-help">Vul gebruikersnaam in</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Wachtwoord</label>
+                        <input type="password" class="form-control" id="password-login">
+                        <span class="help-block hidden" id="password-login-help">Vul wachtwoord in</span>
+                    </div>
+            </div>
+            <div class="modal-footer left">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                <button type="submit" class="btn btn-primary" id="loginBtn">Inloggen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Register -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Registreren</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger hidden" id="register-error">
+                    <strong>Controleer je ingevulde gegevens</strong><br>Gebruikersnaam en wachtwoord moeten tenminste 6
+                    tekens bevatten<br>
+                    Voornaam en achternaam zijn een verplicht veld.
+                </div>
+                <div class="alert alert-danger hidden" id="register-error-duplicate">
+                    <strong>Gebruiker bestaat al</strong><br>Probeer een andere gebruikersnaam
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="username-login">Gebruikersnaam</label>
+                        <input type="text" class="form-control" id="username-register">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Wachtwoord</label>
+                        <input type="password" class="form-control" id="password-register">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Voornaam</label>
+                        <input type="text" class="form-control" id="first-name-register">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Achternaam</label>
+                        <input type="text" class="form-control" id="last-name-register">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login">Tussenvoegsel</label>
+                        <input type="text" class="form-control" id="preposition-register">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer left">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                <button type="submit" class="btn btn-primary" id="registerBtn">Registreren</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal User Info -->
+<div class="modal fade" id="user-info" tabindex="-1" role="dialog" aria-labelledby="user-info">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Je profiel</h4>
+            </div>
+            <div class="modal-body">
+                Gebruikersnaam: <span id="username"></span><br>
+                Voornaam: <span id="first-name"></span><br>
+                Achternaam: <span id="last-name"></span>
+            </div>
+            <div class="modal-footer left">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add User Rating -->
+<div class="modal fade" id="add-rating" tabindex="-1" role="dialog" aria-labelledby="add-rating">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="film-name">Je profiel</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="select-rating">Je beoordeling:</label>
+                    <select class="form-control" id="select-rating">
+                        <option>0.5</option>
+                        <option>1</option>
+                        <option>1.5</option>
+                        <option>2</option>
+                        <option>2.5</option>
+                        <option>3</option>
+                        <option>3.5</option>
+                        <option>4</option>
+                        <option>4.5</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer left">
+                <button type="submit" class="btn btn-primary" id="submit_rating">Opslaan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JQuery -->
+<script src="includes/libraries/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="includes/libraries/bootstrap.min.js"></script>
+
+<!-- User authentication -->
+<script src="includes/scripts/webapp-login.js"></script>
+
+<!-- Load films -->
+<script src="includes/scripts/webapp-films.js"></script>
+</body>
+</html>

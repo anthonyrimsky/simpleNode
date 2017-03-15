@@ -1,0 +1,21 @@
+/* Set max width to media */
+img {
+    max-width: 100%;
+}
+
+/* Center movies */
+#films-list {
+    text-align: center
+}
+
+/* Logo style */
+#logo {
+    max-width: 40px;
+    float:left;
+    margin: 5px 8px 0 0;
+}
+
+/* Margin for films list */
+#films-list .col-md-3.col-sm-4 {
+    margin-bottom: 30px;
+}
